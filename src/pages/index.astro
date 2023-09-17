@@ -4,8 +4,10 @@ const subtitle = "This is the homepage of Kolade's blog"
 
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting.jsx';
 ---
 
 <BaseLayout pageTitle={pageTitle}, subtitle={subtitle}>
   <h2>My awesome blog subtitle</h2>
+  <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
 </BaseLayout>
