@@ -1,5 +1,6 @@
 ---
 const pageTitle = "About Me";
+const subtitle = "THis is the about page of Kolade's blog"
 
 const identity = {
   firstName: "Kolade",
@@ -23,43 +24,11 @@ const sportColor = "crimson";
 const fontWeight = "bold";
 const textCase = "uppercase";
 
-import '../styles/global.css';
-import Footer from '../components/Footer.astro';
-import Header from '../components/header.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
 
-        <style define:vars={{skillColor, sportColor, fontWeight, textCase}}>
-            h1 {
-                color: purple;
-                font-size: 4rem;
-            }
-
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textCase);
-            }
-
-            .sport {
-                color: var(--sportColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textCase)
-            }
-        </style>
-	</head>
-    <body>
-       <Header />
-
-        <h1>{pageTitle}</h1>
-
+    <BaseLayout pageTitle={pageTitle} subtitle={subtitle}>
         <p>Here are a few facts about me:</p>
         <ul>
             <li>My name is {identity.firstName}.</li>
@@ -88,11 +57,4 @@ import Header from '../components/header.astro'
         {finished && <p>I finished this tutorial!</p>}
 
         {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
-        <Footer />
-
-        <script>
-			import "../scripts/menu.js";
-		</script>
-	</body>
-</html>
+    </BaseLayout>
